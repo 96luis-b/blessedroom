@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Efecto de Transparencia con Imagen</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@0,400..700;1,400..700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=Gelasio:ital,wght@0,400..700;1,400..700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=Fira+Mono:wght@400;500;700&family=Gelasio:ital,wght@0,400..700;1,400..700&display=swap');
+
+        .tangerine-regular {
+            font-family: "Tangerine", cursive;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .tangerine-bold {
+            font-family: "Tangerine", cursive;
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        .gelasio-regular {
+            font-family: "Gelasio", serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .gelasio-bold {
+            font-family: "Gelasio", serif;
+            font-optical-sizing: auto;
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        .gelasio-albert-sans {
+            font-family: "Gelasio", serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+
+        /* Efecto glass morphism avanzado */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+        }
+
+        /* Animación sutil al cargar */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-content {
+            animation: fadeIn 1.2s ease-out forwards;
+        }
+
+        /* Asegurar que la imagen de fondo cubra todo */
+        .bg-cover-image {
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .bg-ligth-beige {
+            background: #fbf6f5;
+        }
+
+        .color-gold-primary {
+            color: #f1c078;
+        }
+
+        .color-gold-secundary {
+            color: #db9763;
+        }
+
+        .color-gold-three {
+            /* color: #e2a64b; */
+            color: #e29c67;
+        }
+
+        .nav-iten:hover {
+            color: #db9763;
+        }
+
+        .shadow-color-gold-500 {
+            box-shadow: .5px .5px 10px .2px #f1c078;
+        }
+
+
+        /* background: #fcf4f4; */
+    </style>
+</head>
+
+<body class="font-sans min-h-screen overflow-x-hidden">
+    <!-- Navigation Bar -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white" id="mainNav">
+        <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex-1 flex justify-start">
+                <a href="index.html" class="text-gray-800 px-3 py-2">HOME</a>
+                <a href="event.html" class="text-gray-800 nav-iten px-3 py-2">EVENTOS</a>
+                <!-- <a href="#" class="text-gray-800 nav-iten px-3 py-2">ACERCA DE</a> -->
+                <a href="contact.html" class="text-gray-800 nav-iten px-3 py-2">CONTACTO</a>
+            </div>
+            <div class="flex-1 flex justify-center">
+                <img src="/public/img/logo_blessedroom.png" alt="Logo" class="h-12">
+            </div>
+            <div class="flex-1 flex justify-end">
+                <a href="donate.html" class="font-bold color-gold-three px-3 py-2">DONAR</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección de explicación técnica -->
+    <!-- <section class="relative h-screen px-4 md:px-8 bg-ligth-beige  flex items-center justify-center">
+        <div class="max-w-4xl mx-auto">
+            <div class="p-8 md:p-12 rounded-xl max-w5xl mx-5 text-center z-20 animate-content">
+                <h1 class="flex items-center justify-center text-9xl md:text-9xl font-bold tangerine-bold mb-4">
+                    Contáctanos
+                </h1>
+                <p class="text-lg mb-8 gelasio-regular text-gray-700 text-2xl md:text-2xl ">
+                    Si tienes alguna pregunta, no dudes en consultarnos. ¡Estaremos encantados de ayudarte y responderte
+                    pronto!
+                </p>
+            </div>
+        </div>
+        </div>
+    </section> -->
+
+    <!-- Sección de contacto -->
+    <section class="h-full h-screen bg-ligth-beige pt-40">
+        <div class="">
+            <div class="mx-auto max-w-320 lg:px-20 lg:py-15 bg-white ">
+                <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2">
+                    <article class="flex max-w-xl flex-col items-center justify-center ">
+                        <div class="flex-1 ">
+                            <img src="public/img/logo_banesco_2.png" alt="" class="grow w-96" />
+                        </div>
+                        <div class=" flex flex-1 items-end justify-center">
+                            <div class="text-sm/6 font-sans">
+                                <div class="flex flex-row">
+                                    <p class=" px-1 text-base md:text-base text-gray-600 gelasio-bold">
+                                        TITULAR:</p>
+                                    <p class=" px-1 text-base md:text-base font-semibold text-gray-600 pb-1">
+                                        LUIS BOCARANDA</p>
+                                </div>
+                                <div class="flex flex-row">
+                                    <p class=" px-1 text-base md:text-base text-gray-600 gelasio-bold">
+                                        DOCUMENTO:</p>
+                                    <p class=" px-1 text-base md:text-base font-semibold text-gray-600 pb-1">
+                                        V-21789016</p>
+                                </div>
+                                <div class="flex flex-row">
+                                    <p class=" px-1 text-base md:text-base text-gray-600 gelasio-bold">
+                                        Nro CUENTA:</p>
+                                    <p class=" px-1 text-base md:text-base font-semibold text-gray-600">
+                                        01340039565656566505</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="flex max-w-xl flex-col items-center justify-center ">
+                        <div class="flex-1 ">
+                            <img src="public/img/logo_mercantil_2.png" alt="" class="grow w-96" />
+                        </div>
+                        <div class=" flex flex-1 items-end justify-center">
+                            <div class="text-sm/6 font-sans">
+                                <div class="flex flex-row">
+                                    <p class=" px-1 text-base md:text-base text-gray-600 gelasio-bold">
+                                        TITULAR:</p>
+                                    <p class=" px-1 text-base md:text-base font-semibold text-gray-600 pb-1">
+                                        LUIS BOCARANDA</p>
+                                </div>
+                                <div class="flex flex-row">
+                                    <p class=" px-1 text-base md:text-base text-gray-600 gelasio-bold">
+                                        DOCUMENTO:</p>
+                                    <p class=" px-1 text-base md:text-base font-semibold text-gray-600 pb-1">
+                                        V-21789016</p>
+                                </div>
+                                <div class="flex flex-row">
+                                    <p class=" px-1 text-base md:text-base text-gray-600 gelasio-bold">
+                                        Nro CUENTA:</p>
+                                    <p class=" px-1 text-base md:text-base font-semibold text-gray-600">
+                                        01340039565656566505</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de explicación técnica -->
+    <section class="h-90 py-20 px-4 md:px-8 bg-ligth-beige  flex items-center justify-center">
+        <div class="max-w-4xl mx-auto">
+            <!-- Panel transparente central -->
+            <div class="p-8 md:p-12 rounded-xl max-w-2xl mx-4 text-center z-20 animate-content">
+                <h1 class="text-4xl md:text-5xl font-bold tangerine-bold mb-4">Blessed Room</h1>
+                <p class="text-lg gelasio-regular text-gray-600">
+                    Es más que una marca de moda; es un movimiento que nace del corazón de Dios
+                </p>
+            </div>
+            <div class="flex flex-row items-center justify-center rounded-xl max-w-2xl mx-4 text-center pb-10">
+                <img src="/public/icons/icons8-facebook-nuevo-50.png" alt="" class="size-12 cursor-pointer" />
+
+                <a href="https://www.instagram.com/blessedroomvzla/?igsh=bjU0ZDdmOTJueGk0#">
+                    <img src="/public/icons/icons_instagram_1.png" alt="" class="size-12 mx-5 cursor-pointer" />
+                </a>
+                <a href="https://www.tiktok.com/@blessedroomccs">
+                    <img src="/public/icons/icons_tiktok_1.png" alt="" class="size-12 cursor-pointer" />
+                </a>
+                <a href="https://bio.link/bleseedroom">
+                    <img src="/public/img/logo_blessedroom.png" alt="" class="size-10 mx-5 cursor-pointer" href="" />
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <!-- Interactividad con JS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Efecto paralaje sutil al hacer scroll
+            window.addEventListener('scroll', () => {
+                const scrollPosition = window.scrollY;
+                const heroSection = document.querySelector('section');
+                heroSection.style.backgroundPositionY = `${scrollPosition * 0.5}px`;
+            });
+
+            // Scroll suave al hacer clic en botón
+            // const ctaButton = document.querySelector('button');
+            // ctaButton.addEventListener('click', () => {
+            //     const techSection = document.querySelector('section:nth-of-type(2)');
+            //     techSection.scrollIntoView({
+            //         behavior: 'smooth',
+            //         block: 'center'
+            //     });
+            // });
+
+            // // Animación al hacer hover en el botón
+            // ctaButton.addEventListener('mouseenter', () => {
+            //     ctaButton.classList.add('shadow-lg');
+            // });
+            // ctaButton.addEventListener('mouseleave', () => {
+            //     ctaButton.classList.remove('shadow-lg');
+            // });
+
+            // Navbar scroll effect
+            const nav = document.getElementById('mainNav');
+            console.log("nav: ", nav)
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    // nav.classList.add('bg-white/80', 'backdrop-blur-md', 'shadow-sm');
+                    nav.classList.add('bg-white/80', 'backdrop-blur-md', 'shadow-sm');
+                } else {
+                    nav.classList.remove('bg-white/80', 'backdrop-blur-md', 'shadow-sm');
+                }
+            });
+
+            // Enfocar elementos al hacer scroll
+            // window.addEventListener('scroll', () => {
+            //     const sections = document.querySelectorAll('section');
+            //     sections.forEach(section => {
+            //         const rect = section.getBoundingClientRect();
+            //         if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+            //             section.style.opacity = '1';
+            //             section.style.transform = 'translateY(0)';
+            //         } else {
+            //             section.style.opacity = '0.6';
+            //             section.style.transform = 'translateY(20px)';
+            //         }
+            //     });
+            // });
+        });
+    </script>
+
+
+    <!-- <script src="../assets/dist/js/bootstrap.bundle.min.js" class="astro-vvvwv3sm"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" 
+    class="astro-vvvwv3sm"></script> -->
+</body>
+
+</html>
