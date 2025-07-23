@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+    <title>Efecto de Transparencia con Imagen</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@0,400..700;1,400..700&display=swap');
+
+        .tangerine-regular {
+            font-family: "Tangerine", cursive;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .tangerine-bold {
+            font-family: "Tangerine", cursive;
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        .gelasio-regular {
+            font-family: "Gelasio", serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .gelasio-bold {
+            font-family: "Gelasio", serif;
+            font-optical-sizing: auto;
+            font-weight: 700;
+            font-style: normal;
+        }
+
+
+        /* Efecto glass morphism avanzado */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+        }
+
+        /* Animación sutil al cargar */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-content {
+            animation: fadeIn 1.2s ease-out forwards;
+        }
+
+        /* Asegurar que la imagen de fondo cubra todo */
+        .bg-cover-image {
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .bg-ligth-beige {
+            background: #fbf6f5;
+        }
+
+        .color-gold-primary {
+            color: #f1c078;
+        }
+
+        .color-gold-secundary {
+            color: #db9763;
+        }
+
+        .color-gold-three {
+            /* color: #e2a64b; */
+            color: #e29c67;
+        }
+
+        .nav-iten:hover {
+            color: #db9763;
+        }
+
+        .shadow-color-gold-500 {
+            box-shadow: .5px .5px 10px .2px #f1c078;
+        }
+
+        /* background: #fcf4f4; */
+    </style>
+</head>
+
+<body class="font-sans min-h-screen overflow-x-hidden">
+    <!-- Navigation Bar -->
+    <nav class="fixed w-full z-50 transition-all duration-300" id="mainNav">
+        <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex-1 flex justify-start">
+                <a href="index.html" class="text-gray-800 color-gold-secundary px-3 py-2">HOME</a>
+                <a href="event.html" class="text-gray-800 nav-iten px-3 py-2">EVENTOS</a>
+                <!-- <a href="#" class="text-gray-800 nav-iten px-3 py-2">ACERCA DE</a> -->
+                <a href="contact.html" class="text-gray-800 nav-iten px-3 py-2">CONTACTO</a>
+            </div>
+            <div class="flex-1 flex justify-center">
+                <img src="/public/img/logo_blessedroom.png" alt="Logo" class="h-12">
+            </div>
+            <div class="flex-1 flex justify-end">
+                <a href="donate.html" class="font-bold color-gold-three px-3 py-2">DONAR</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección de explicación técnica -->
+    <section class="relative h-screen py-20 px-4 md:px-8 bg-ligth-beige  flex items-center justify-center">
+        <div class="max-w-4xl mx-auto">
+            <!-- <h2 class="text-3xl font-bold text-indigo-900 mb-6">¿Cómo funciona este efecto?</h2> -->
+            <!-- Panel transparente central -->
+            <div class="p-8 md:p-12 rounded-xl max-w-4xl mx-4 text-center z-20 animate-content">
+                <h1 class="flex items-center justify-center text-8xl md:text-7xl font-bold tangerine-bold mb-4">Mi
+                    socio es Yeshúa Juan <p class="color-gold-secundary px-2"> 14:6
+                    </p>
+                </h1>
+                <p class="text-lg mb-8 gelasio-regular text-gray-700">
+                    Yo soy el camino, y la verdad, y la vida; nadie viene al Padre, sino por mí.
+                </p>
+                <!-- <p class="text-lg mb-8">Esta sección usa transparencia avanzada
+                    (<code>backdrop-filter</code>)
+                    para mostrar la imagen de fondo a través del contenido.
+                </p> -->
+                <!-- <button
+                    class="bg-white/90 hover:bg-white text-indigo-800 font-semibold px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105">
+                    Ver Demo Interactiva
+                </button> -->
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Sección Hero con transparencia -->
+    <!-- <section class="relative h-screen flex items-center justify-center bg-cover-image pt-20"
+        style="background-image: url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3c670ad1-e57d-409c-a49b-89f14eaaa604.png');"> -->
+    <section class="relative h-screen flex items-center justify-center bg-cover-image pt-10"
+        style="background-image: url('/public/img/chica-vista-delantera-haciendo-yoga.png');">
+        <!-- style="background-image: url('https://img.freepik.com/foto-gratis/chica-vista-delantera-haciendo-yoga_23-2151084007.jpg?semt=ais_hybrid&w=740')"> -->
+
+        <!-- Overlay oscuro para mejorar legibilidad -->
+        <div class="absolute inset-0 bg-black/30 z-10"></div>
+
+        <!-- Panel transparente central -->
+        <!-- <div class="glass-panel p-8 md:p-12 rounded-xl max-w-2xl mx-4 text-center z-20 animate-content">
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Diseño con Efecto Cristal</h1>
+            <p class="text-lg text-white/90 mb-8">Esta sección usa transparencia avanzada (<code>backdrop-filter</code>)
+                para mostrar la imagen de fondo a través del contenido.</p>
+            <button
+                class="bg-white/90 hover:bg-white text-indigo-800 font-semibold px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105">
+                Ver Demo Interactiva
+            </button>
+        </div> -->
+
+        <!-- Nota flotante abajo -->
+        <!-- <div class="absolute bottom-8 left-0 right-0 text-center z-20">
+            <p class="text-white/80 text-sm">Desplázate hacia abajo ↓</p>
+        </div> -->
+    </section>
+
+    <!-- Sección de explicación técnica -->
+    <section class="h-full bg-ligth-beige  py-10">
+        <div class="flex justify-center items-center">
+            <!-- <h2 class="text-3xl font-bold text-indigo-900 mb-6">¿Cómo funciona este efecto?</h2> -->
+            <div class="flex">
+                <div class="flex-1 flex items-center justify-center flex-col  h-110 p-6">
+                    <div class=" flex flex-row mx-10 mb-8">
+                        <h1 class="mb-3 tangerine-regular text-8xl md:text-6xl">
+                            <strong class="color-gold-secundary">Blessed Room</strong>
+                            nace del corazón y la visión de
+                            <strong class="tangerine-bold">Edgardo de la Hoz</strong>
+
+                        </h1>
+                        <!-- <h1 class="mb-3 color-gold-secundary tangerine-regular text-8xl md:text-6xl"> Blessed Room</h1>
+                        <h1 class="mb-3 tangerine-regular text-8xl md:text-6xl">nace del corazón y la visión de</h1>
+                        <h1 class="mb-3 tangerine-bold text-8xl md:text-6xl">Edgardo de la Hoz</h1> -->
+
+                    </div>
+                    <p class="text-gray-700 mx-10 gelasio-regular">Desde su corazón, Edgardo irradia mensajes
+                        inspiradores que
+                        trascienden lo meramente religioso, ofreciendo una guía práctica para cultivar la fe en el día a
+                        día,
+                        fortalecer las relaciones interpersonales y descubrir el propósito divino inherente en cada uno.
+                        Con Blessed Room, Edgardo no solo comparte su voz, sino que potencia vidas a través de la
+                        esperanza y la dirección espiritual</p>
+                    <!-- <p class="text-gray-700">Usamos una imagen de alta resolución con posición fija
+                        (<code>background-attachment: fixed</code>) para crear profundidad.</p> -->
+                </div>
+                <div class="flex-1  h-full">
+                    <!-- <h3 class="text-xl font-semibold mb-3 text-indigo-700">2. Capa Transparente</h3>
+                    <p class="text-gray-700">La combinación de <code>rgba()</code> para color semitransparente y
+                        <code>backdrop-filter: blur()</code> crea el efecto "vidrio".
+                    </p> -->
+                    <img src="https://i.pinimg.com/1200x/6f/7d/11/6f7d114c4bbc2c517ec91750643feadc.jpg" alt="Logo">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="h-full bg-ligth-beige">
+        <div class="bg-white py-10 sm:py-20">
+            <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                <div class="mx-auto max-w-2xl lg:mx-0">
+                    <h2
+                        class="text-4xl tangerine-bold tracking-tight text-pretty text-gray-900 sm:text-5xl text-8xl md:text-6xl">
+                        Nuestro
+                        propósito</h2>
+                    <p class="mt-4 text-lg/8 text-gray-600 gelasio-regular">Aspiramos a ser el estandarte en el vasto
+                        campo de la
+                        evangelización y el discipulado. Para ello, adoptaremos canales innovadores, especialmente en el
+                        ámbito digital, y potenciando nuestra propuesta de valor completa que además de informar,
+                        transforme, todo siempre alineado con el propósito redentor de Cristo que nos guía.</p>
+                </div>
+                <div
+                    class="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-2">
+                    <article class="flex max-w-xl flex-col items-center justify-center">
+                        <!-- <div class="flex items-center gap-x-4 text-xs">
+                            <time datetime="2020-03-16" class="text-gray-500">Mar 16, 2020</time>
+                            <a href="#"
+                                class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Marketing</a>
+                        </div> -->
+                        <div class="group pb-6">
+                            <h3 class="font-semibold text-gray-900 group-hover:text-gray-600">
+                                <a href="#" class="gelasio-regular text-5xl md:text-5xl">
+                                    Misión
+                                </a>
+                            </h3>
+                        </div>
+                        <div class=" flex flex-1 flex-col items-center justify-center">
+                            <img src="/public/img/group.jpg" alt=""
+                                class="size-80  bg-gray-50 shadow-color-gold-500 rounded-sm" />
+                            <div class="text-sm/6 ">
+                                <!-- <p class="font-semibold text-gray-900">
+                                    <a href="#">
+                                        <span class="absolute inset-0"></span>
+                                        Michael Foster
+                                    </a>
+                                </p> -->
+                                <p class="text-gray-600 px-15 pt-3 gelasio-regular">La misión de Blessed Room es
+                                    difundir el amor y la
+                                    bondad
+                                    de
+                                    Dios a través de la moda y la inspiración, ofreciendo ropa que no solo adorne el
+                                    cuerpo, sino que también eleve el espíritu.</p>
+                            </div>
+                        </div>
+                        <!-- <div class="group relative grow">
+                            <h3 class="mt-3 text-lg/6 font-semibold text-gray-900 group-hover:text-gray-600">
+                                <a href="#">
+                                    <span class="absolute inset-0"></span>
+                                    Mision
+                                </a>
+                            </h3>
+                            <p class="mt-5 line-clamp-3 text-sm/6 text-gray-600">Illo sint voluptas. Error voluptates
+                                culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed
+                                exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.</p>
+                        </div> -->
+
+                    </article>
+                    <article class="flex max-w-xl flex-col items-center justify-center">
+                        <!-- <div class="flex items-center gap-x-4 text-xs">
+                            <time datetime="2020-03-16" class="text-gray-500">Mar 16, 2020</time>
+                            <a href="#"
+                                class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Marketing</a>
+                        </div> -->
+                        <div class="group pb-6">
+                            <h3 class="text-lg/6 font-semibold text-gray-900 group-hover:text-gray-600">
+                                <a href="#" class="gelasio-regular text-5xl md:text-5xl">
+                                    Visión
+                                </a>
+                            </h3>
+                        </div>
+                        <div class=" flex flex-1 flex-col items-center justify-center">
+
+                            <img src="https://i.pinimg.com/1200x/37/f5/5f/37f55f1d2da9f74d1e6afe04dbbd92a0.jpg" alt=""
+                                class="size-80  bg-gray-50 shadow-color-gold-500 rounded-sm" />
+                            <!-- <video class=" w-full rounded-lg size-80" autoplay muted>
+                                <source src="/public/video/baby_jesus_video.mp4" type="video/mp4" />
+                                Your browser does not support the video tag.
+                            </video> -->
+                            <div class="text-sm/6">
+                                <!-- <p class="font-semibold text-gray-900">
+                                    <a href="#">
+                                        <span class="absolute inset-0"></span>
+                                        Michael Foster
+                                    </a>
+                                </p> -->
+                                <p class="text-gray-600 px-15 pt-3 gelasio-regular">Ser el referente global de un
+                                    movimiento cristiano
+                                    vanguardista, reconocido por su innovación en la evangelización digital, el mensaje
+                                    de su línea de productos y la eficacia de su red de voluntariado.</p>
+                            </div>
+                        </div>
+                        <!-- <div class="group relative grow">
+                            <h3 class="mt-3 text-lg/6 font-semibold text-gray-900 group-hover:text-gray-600">
+                                <a href="#">
+                                    <span class="absolute inset-0"></span>
+                                    Mision
+                                </a>
+                            </h3>
+                            <p class="mt-5 line-clamp-3 text-sm/6 text-gray-600">Illo sint voluptas. Error voluptates
+                                culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed
+                                exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.</p>
+                        </div> -->
+
+                    </article>
+
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Sección de explicación técnica -->
+    <section class="h-90 py-20 px-4 md:px-8 bg-ligth-beige  flex items-center justify-center">
+        <div class="max-w-4xl mx-auto">
+            <!-- <h2 class="text-3xl font-bold text-indigo-900 mb-6">¿Cómo funciona este efecto?</h2> -->
+            <!-- Panel transparente central -->
+            <div class="p-8 md:p-12 rounded-xl max-w-2xl mx-4 text-center z-20 animate-content">
+                <h1 class="text-4xl md:text-5xl font-bold tangerine-bold mb-4">Blessed Room</h1>
+                <p class="text-lg gelasio-regular text-gray-600">
+                    Es más que una marca de moda; es un movimiento que nace del corazón de Dios
+                </p>
+                <!-- <p class="text-lg mb-8">Esta sección usa transparencia avanzada
+                    (<code>backdrop-filter</code>)
+                    para mostrar la imagen de fondo a través del contenido.
+                </p> -->
+                <!-- <button
+                    class="bg-white/90 hover:bg-white text-indigo-800 font-semibold px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105">
+                    Worthy of Kings.
+                </button> -->
+            </div>
+            <div class="flex flex-row items-center justify-center rounded-xl max-w-2xl mx-4 text-center pb-10">
+                <img src="/public/icons/icons8-facebook-nuevo-50.png" alt="" class="size-12 cursor-pointer" />
+
+                <a href="https://www.instagram.com/blessedroomvzla/?igsh=bjU0ZDdmOTJueGk0#">
+                    <img src="/public/icons/icons_instagram_1.png" alt="" class="size-12 mx-5 cursor-pointer" />
+                </a>
+                <a href="https://www.tiktok.com/@blessedroomccs">
+                    <img src="/public/icons/icons_tiktok_1.png" alt="" class="size-12 cursor-pointer" />
+                </a>
+                <a href="https://bio.link/bleseedroom">
+                    <img src="/public/img/logo_blessedroom.png" alt="" class="size-10 mx-5 cursor-pointer" href="" />
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <!-- Interactividad con JS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Efecto paralaje sutil al hacer scroll
+            window.addEventListener('scroll', () => {
+                const scrollPosition = window.scrollY;
+                const heroSection = document.querySelector('section');
+                heroSection.style.backgroundPositionY = `${scrollPosition * 0.5}px`;
+            });
+
+            // Scroll suave al hacer clic en botón
+            // const ctaButton = document.querySelector('button');
+            // ctaButton.addEventListener('click', () => {
+            //     const techSection = document.querySelector('section:nth-of-type(2)');
+            //     techSection.scrollIntoView({
+            //         behavior: 'smooth',
+            //         block: 'center'
+            //     });
+            // });
+
+            // // Animación al hacer hover en el botón
+            // ctaButton.addEventListener('mouseenter', () => {
+            //     ctaButton.classList.add('shadow-lg');
+            // });
+            // ctaButton.addEventListener('mouseleave', () => {
+            //     ctaButton.classList.remove('shadow-lg');
+            // });
+
+            // Navbar scroll effect
+            const nav = document.getElementById('mainNav');
+            console.log("nav: ", nav)
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    // nav.classList.add('bg-white/80', 'backdrop-blur-md', 'shadow-sm');
+                    nav.classList.add('bg-white/80', 'backdrop-blur-md', 'shadow-sm');
+                } else {
+                    nav.classList.remove('bg-white/80', 'backdrop-blur-md', 'shadow-sm');
+                }
+            });
+
+            // Enfocar elementos al hacer scroll
+            // window.addEventListener('scroll', () => {
+            //     const sections = document.querySelectorAll('section');
+            //     sections.forEach(section => {
+            //         const rect = section.getBoundingClientRect();
+            //         if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+            //             section.style.opacity = '1';
+            //             section.style.transform = 'translateY(0)';
+            //         } else {
+            //             section.style.opacity = '0.6';
+            //             section.style.transform = 'translateY(20px)';
+            //         }
+            //     });
+            // });
+        });
+    </script>
+
+
+    <!-- <script src="../assets/dist/js/bootstrap.bundle.min.js" class="astro-vvvwv3sm"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" 
+    class="astro-vvvwv3sm"></script> -->
+</body>
+
+</html>
